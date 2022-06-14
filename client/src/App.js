@@ -3,7 +3,7 @@ import config from './config'
 
 const UsingFetch = () => {
   const [users, setUsers] = useState([])
-
+  console.log(`${config.API_URL}/test`)
   const fetchData = () => {
     fetch(`${config.API_URL}/test`)
       .then(response => {
