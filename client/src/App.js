@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"
 import config from './config'
 
-console.log(`${config.API_URL}`)
+console.log(`${config.API_URL}/test`)
 
 const UsingFetch = () => {
   const [users, setUsers] = useState([])
   const fetchData = () => {
-    fetch(`${config.API_URL}`)
+    fetch(`${config.API_URL}/test`)
       .then(response => {
         return response.json()
       })
