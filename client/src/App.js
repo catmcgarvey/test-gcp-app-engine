@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react"
+import axios from 'axios';
 import config from './config'
-
-console.log(`${config.API_URL}/test`)
-
 const UsingFetch = () => {
   const [users, setUsers] = useState([])
+
   const fetchData = () => {
-    fetch(`${config.API_URL}/test`)
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        setUsers(data)
-      })
+    let uri = `${config.API_URL}/test`;
+    console.log(uri)
+    axios.get(uri).then(response => {
+      setUsers(response.data);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   useEffect(() => {

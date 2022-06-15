@@ -1,8 +1,14 @@
-var express = require("express");
+const express = require("express");
+const cors = require('cors');
 var app = express();
 
+app.use(cors({
+    origin: '*'
+}));
+
 app.get("/api/test", (req, res, next) => {
-    res.json(["Cat", "was", "here"]);
+    console.log("/api/test requested");
+    res.json([{ id: 1, name: "Cat" }, { id: 2, name: "Al" }, { id: 3, name: "Cody" }]);
 });
 
 const PORT = process.env.PORT || 4000;
